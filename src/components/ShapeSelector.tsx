@@ -8,7 +8,7 @@ interface ShapeSelectorProps {
 
 const ShapeIcon = ({ shape, isActive }: { shape: LampshadeShape; isActive: boolean }) => {
   const color = isActive ? "hsl(32, 80%, 50%)" : "hsl(25, 10%, 50%)";
-  
+
   const icons: Record<string, JSX.Element> = {
     cone: <polygon points="30,10 10,50 50,50" fill="none" stroke={color} strokeWidth="2" />,
     cylinder: <rect x="15" y="10" width="30" height="40" rx="2" fill="none" stroke={color} strokeWidth="2" />,
@@ -25,9 +25,27 @@ const ShapeIcon = ({ shape, isActive }: { shape: LampshadeShape; isActive: boole
   );
 };
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.05 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
+};
+
 const ShapeSelector = ({ selected, onSelect }: ShapeSelectorProps) => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+    <motion.div
+      className="grid grid-cols-2 sm:grid-cols-3 gap-3"
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
       {shapes.map((shape) => {
         const isActive = selected === shape.id;
         return (
@@ -35,6 +53,8 @@ const ShapeSelector = ({ selected, onSelect }: ShapeSelectorProps) => {
             key={shape.id}
             onClick={() => onSelect(shape.id)}
             className={`shape-card flex flex-col items-center gap-2 ${isActive ? "shape-card-active" : ""}`}
+            variants={item}
+            whileHover={{ y: -4, boxShadow: "0 8px 25px -5px hsl(32 80% 50% / 0.15)" }}
             whileTap={{ scale: 0.97 }}
           >
             <ShapeIcon shape={shape} isActive={isActive} />
@@ -43,7 +63,7 @@ const ShapeSelector = ({ selected, onSelect }: ShapeSelectorProps) => {
           </motion.button>
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 
