@@ -1,7 +1,16 @@
-import { Lamp, Sparkles } from "lucide-react";
+import { Lamp, Sparkles, BookOpen, Image } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+
+  const navLinks = [
+    { to: "/", label: "Configurateur", icon: Lamp },
+    { to: "/catalogue", label: "Catalogue", icon: BookOpen },
+    { to: "/realisations", label: "Réalisations", icon: Image },
+  ];
+
   return (
     <motion.header
       className="border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-50"
@@ -10,7 +19,7 @@ const Header = () => {
       transition={{ duration: 0.5, type: "spring" }}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 group">
           <motion.div
             className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center"
             whileHover={{ rotate: 15, scale: 1.1 }}
@@ -19,28 +28,38 @@ const Header = () => {
             <Lamp className="w-5 h-5 text-primary-foreground" />
           </motion.div>
           <div>
-            <h1 className="font-display text-xl font-bold tracking-tight">Lumière & Création</h1>
+            <h1 className="font-display text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Lumière & Création</h1>
             <p className="text-xs text-muted-foreground">Abat-jours sur mesure</p>
           </div>
-        </div>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-body">
-          <a href="#configurateur" className="text-muted-foreground hover:text-foreground transition-colors relative group">
-            Configurateur
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-          </a>
-          <a href="#devis" className="text-muted-foreground hover:text-foreground transition-colors relative group">
-            Devis
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-          </a>
-          <motion.a
-            href="#devis"
-            className="flex items-center gap-1.5 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            Commander
-          </motion.a>
+        </Link>
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to;
+            const Icon = link.icon;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-body transition-all duration-200 ${
+                  isActive
+                    ? "bg-primary/10 text-primary font-medium"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                {link.label}
+              </Link>
+            );
+          })}
+          <motion.div className="ml-2">
+            <Link
+              to="/#devis"
+              className="flex items-center gap-1.5 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:shadow-lg hover:shadow-primary/20 transition-all"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              Commander
+            </Link>
+          </motion.div>
         </nav>
       </div>
     </motion.header>
