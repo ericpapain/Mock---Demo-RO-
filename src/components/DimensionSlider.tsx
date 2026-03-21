@@ -1,3 +1,4 @@
+import React from "react";
 import { Slider } from "@/components/ui/slider";
 
 interface DimensionSliderProps {
@@ -9,25 +10,29 @@ interface DimensionSliderProps {
   onChange: (value: number) => void;
 }
 
-const DimensionSlider = ({ label, value, min, max, unit, onChange }: DimensionSliderProps) => {
-  return (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center">
-        <label className="text-sm font-body font-medium text-foreground">{label}</label>
-        <span className="text-sm font-semibold text-primary">
-          {value} {unit}
-        </span>
+const DimensionSlider = React.forwardRef<HTMLDivElement, DimensionSliderProps>(
+  ({ label, value, min, max, unit, onChange }, ref) => {
+    return (
+      <div ref={ref} className="space-y-2">
+        <div className="flex justify-between items-center">
+          <label className="text-sm font-body font-medium text-foreground">{label}</label>
+          <span className="text-sm font-semibold text-primary tabular-nums">
+            {value} {unit}
+          </span>
+        </div>
+        <Slider
+          value={[value]}
+          min={min}
+          max={max}
+          step={1}
+          onValueChange={([v]) => onChange(v)}
+          className="w-full"
+        />
       </div>
-      <Slider
-        value={[value]}
-        min={min}
-        max={max}
-        step={1}
-        onValueChange={([v]) => onChange(v)}
-        className="w-full"
-      />
-    </div>
-  );
-};
+    );
+  }
+);
+
+DimensionSlider.displayName = "DimensionSlider";
 
 export default DimensionSlider;

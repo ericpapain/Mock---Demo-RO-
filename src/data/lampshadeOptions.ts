@@ -2,7 +2,7 @@ export type LampshadeShape = {
   id: string;
   name: string;
   description: string;
-  icon: string; // SVG path
+  icon: string;
 };
 
 export type LampshadeColor = {
@@ -27,6 +27,12 @@ export type LampshadeDimension = {
   unit: string;
 };
 
+export type LampBase = {
+  id: string;
+  name: string;
+  description: string;
+};
+
 export const shapes: LampshadeShape[] = [
   { id: "cone", name: "Conique", description: "Forme classique évasée", icon: "cone" },
   { id: "cylinder", name: "Cylindrique", description: "Forme droite moderne", icon: "cylinder" },
@@ -34,6 +40,26 @@ export const shapes: LampshadeShape[] = [
   { id: "empire", name: "Empire", description: "Évasé traditionnel", icon: "empire" },
   { id: "oval", name: "Ovale", description: "Doux et organique", icon: "oval" },
   { id: "square", name: "Carré", description: "Lignes nettes et géométriques", icon: "square" },
+];
+
+export const lampBases: LampBase[] = [
+  { id: "none", name: "Sans pied", description: "Suspension uniquement" },
+  { id: "classic", name: "Classique", description: "Pied droit élégant" },
+  { id: "curved", name: "Courbé", description: "Ligne organique sinueuse" },
+  { id: "tripod", name: "Trépied", description: "Trois pieds modernistes" },
+  { id: "vase", name: "Vase", description: "Pied arrondi en céramique" },
+  { id: "slim", name: "Fin", description: "Pied minimaliste ultra-fin" },
+];
+
+export const baseColors = [
+  { id: "noir", name: "Noir", hex: "#1A1A1A" },
+  { id: "laiton", name: "Laiton", hex: "#B5935B" },
+  { id: "chrome", name: "Chrome", hex: "#C0C0C0" },
+  { id: "cuivre", name: "Cuivre", hex: "#B87333" },
+  { id: "blanc", name: "Blanc", hex: "#F5F0E8" },
+  { id: "bois", name: "Bois naturel", hex: "#8B6914" },
+  { id: "or-rose", name: "Or Rose", hex: "#B76E79" },
+  { id: "vert-bronze", name: "Vert Bronze", hex: "#4A6741" },
 ];
 
 export const colors: LampshadeColor[] = [
