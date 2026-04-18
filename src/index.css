@@ -6,104 +6,110 @@
 
 @layer base {
   :root {
-    /* SupplyOR — Dashboard industriel sombre (forcé, dark by default) */
-    --background: 222 30% 6%;
-    --foreground: 210 30% 96%;
+    /* MARITIME OPS — Deep ocean cockpit */
+    --background: 215 45% 5%;
+    --foreground: 200 30% 96%;
 
-    --card: 222 28% 9%;
-    --card-foreground: 210 30% 96%;
+    --card: 215 40% 8%;
+    --card-foreground: 200 30% 96%;
 
-    --popover: 222 30% 8%;
-    --popover-foreground: 210 30% 96%;
+    --popover: 215 45% 7%;
+    --popover-foreground: 200 30% 96%;
 
-    /* Primary = cyan néon */
-    --primary: 188 95% 55%;
-    --primary-foreground: 222 40% 6%;
+    /* Primary = teal phosphorescent */
+    --primary: 178 95% 50%;
+    --primary-foreground: 215 50% 5%;
 
-    /* Secondary = surface élevée */
-    --secondary: 222 22% 14%;
-    --secondary-foreground: 210 30% 92%;
+    --secondary: 215 35% 13%;
+    --secondary-foreground: 200 30% 92%;
 
-    --muted: 222 18% 16%;
-    --muted-foreground: 215 18% 62%;
+    --muted: 215 30% 14%;
+    --muted-foreground: 210 18% 62%;
 
-    /* Accent = orange industriel */
-    --accent: 28 100% 58%;
-    --accent-foreground: 222 40% 6%;
+    /* Accent = amber warning */
+    --accent: 38 100% 58%;
+    --accent-foreground: 215 50% 5%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 358 88% 60%;
+    --destructive-foreground: 200 30% 98%;
 
     --success: 152 76% 50%;
-    --success-foreground: 222 40% 6%;
+    --success-foreground: 215 50% 5%;
 
-    --warning: 42 100% 60%;
-    --warning-foreground: 222 40% 6%;
+    --warning: 38 100% 58%;
+    --warning-foreground: 215 50% 5%;
 
-    --info: 210 100% 65%;
-    --info-foreground: 222 40% 6%;
+    --info: 200 100% 60%;
+    --info-foreground: 215 50% 5%;
 
-    --border: 222 20% 18%;
-    --input: 222 22% 14%;
-    --ring: 188 95% 55%;
+    --border: 215 30% 16%;
+    --input: 215 35% 13%;
+    --ring: 178 95% 50%;
 
-    --radius: 0.625rem;
+    --radius: 0.5rem;
 
-    /* Cockpit specific */
-    --grid-line: 222 20% 14%;
-    --neon-cyan: 188 95% 55%;
-    --neon-orange: 28 100% 58%;
-    --neon-magenta: 320 90% 60%;
-    --neon-lime: 90 80% 55%;
-    --neon-violet: 265 85% 65%;
+    /* Maritime palette */
+    --grid-line: 215 30% 12%;
+    --ocean-deep: 215 50% 4%;
+    --ocean-mid: 210 45% 12%;
+    --ocean-shallow: 195 60% 28%;
 
-    --gradient-cockpit: radial-gradient(ellipse at top, hsl(222 30% 12%) 0%, hsl(222 30% 6%) 60%);
-    --gradient-primary: linear-gradient(135deg, hsl(188 95% 55%) 0%, hsl(210 100% 60%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(28 100% 58%) 0%, hsl(14 95% 55%) 100%);
-    --gradient-danger: linear-gradient(135deg, hsl(0 84% 60%) 0%, hsl(340 90% 55%) 100%);
+    /* Risk gradient */
+    --risk-low: 152 76% 50%;
+    --risk-med: 38 100% 58%;
+    --risk-high: 18 95% 58%;
+    --risk-critical: 358 88% 60%;
+
+    /* Container category colors */
+    --cat-export: 178 95% 50%;
+    --cat-import: 265 85% 65%;
+    --cat-empty: 215 18% 50%;
+    --cat-hazard: 358 88% 60%;
+    --cat-reefer: 200 100% 60%;
+    --cat-priority: 38 100% 58%;
+
+    --gradient-cockpit: radial-gradient(ellipse at top, hsl(215 45% 11%) 0%, hsl(215 45% 5%) 60%);
+    --gradient-primary: linear-gradient(135deg, hsl(178 95% 50%) 0%, hsl(200 100% 55%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 100% 58%) 0%, hsl(18 95% 55%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(358 88% 60%) 0%, hsl(330 90% 55%) 100%);
     --gradient-success: linear-gradient(135deg, hsl(152 76% 50%) 0%, hsl(170 80% 45%) 100%);
+    --gradient-ocean: linear-gradient(180deg, hsl(215 50% 8%) 0%, hsl(210 45% 14%) 100%);
 
-    --shadow-glow-cyan: 0 0 24px hsl(188 95% 55% / 0.35), 0 0 48px hsl(188 95% 55% / 0.15);
-    --shadow-glow-orange: 0 0 24px hsl(28 100% 58% / 0.35), 0 0 48px hsl(28 100% 58% / 0.15);
-    --shadow-elevated: 0 8px 32px -8px hsl(222 50% 2% / 0.6), 0 2px 8px hsl(222 50% 2% / 0.4);
+    --shadow-glow-teal: 0 0 24px hsl(178 95% 50% / 0.4), 0 0 48px hsl(178 95% 50% / 0.18);
+    --shadow-glow-amber: 0 0 24px hsl(38 100% 58% / 0.4), 0 0 48px hsl(38 100% 58% / 0.18);
+    --shadow-glow-danger: 0 0 24px hsl(358 88% 60% / 0.4), 0 0 48px hsl(358 88% 60% / 0.18);
+    --shadow-elevated: 0 8px 32px -8px hsl(215 60% 2% / 0.7), 0 2px 8px hsl(215 60% 2% / 0.5);
 
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 222 32% 5%;
-    --sidebar-foreground: 210 25% 80%;
-    --sidebar-primary: 188 95% 55%;
-    --sidebar-primary-foreground: 222 40% 6%;
-    --sidebar-accent: 222 25% 12%;
-    --sidebar-accent-foreground: 188 95% 70%;
-    --sidebar-border: 222 22% 12%;
-    --sidebar-ring: 188 95% 55%;
+    --sidebar-background: 215 50% 4%;
+    --sidebar-foreground: 200 25% 80%;
+    --sidebar-primary: 178 95% 50%;
+    --sidebar-primary-foreground: 215 50% 5%;
+    --sidebar-accent: 215 35% 11%;
+    --sidebar-accent-foreground: 178 95% 70%;
+    --sidebar-border: 215 30% 11%;
+    --sidebar-ring: 178 95% 50%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
-  html {
-    color-scheme: dark;
-  }
+  html { color-scheme: dark; }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
     background-image:
-      radial-gradient(ellipse at top, hsl(222 30% 12%) 0%, hsl(222 30% 6%) 60%),
+      radial-gradient(ellipse at top, hsl(215 45% 11%) 0%, hsl(215 45% 5%) 60%),
       linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px);
     background-size: 100% 100%, 32px 32px, 32px 32px;
     background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
-  }
+  h1, h2, h3, h4, h5, h6 { @apply font-display tracking-tight; }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: hsl(var(--background)); }
   ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 6px; }
@@ -115,11 +121,9 @@
     @apply rounded-lg border border-border bg-card/80 backdrop-blur-sm;
     box-shadow: var(--shadow-elevated);
   }
-
   .panel-header {
     @apply flex items-center justify-between px-4 py-3 border-b border-border;
   }
-
   .panel-title {
     @apply text-xs font-mono font-semibold uppercase tracking-[0.15em] text-muted-foreground;
   }
@@ -127,23 +131,23 @@
   .kpi-card {
     @apply panel p-4 relative overflow-hidden transition-all duration-300;
   }
-
   .kpi-card::before {
     content: '';
     @apply absolute top-0 left-0 right-0 h-px;
     background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.6), transparent);
   }
-
   .kpi-card:hover {
     @apply border-primary/40;
-    box-shadow: var(--shadow-glow-cyan);
+    box-shadow: var(--shadow-glow-teal);
   }
 
-  .neon-text-cyan { color: hsl(var(--neon-cyan)); text-shadow: 0 0 8px hsl(var(--neon-cyan) / 0.6); }
-  .neon-text-orange { color: hsl(var(--neon-orange)); text-shadow: 0 0 8px hsl(var(--neon-orange) / 0.6); }
+  .neon-text-teal { color: hsl(var(--primary)); text-shadow: 0 0 8px hsl(var(--primary) / 0.6); }
+  .neon-text-amber { color: hsl(var(--accent)); text-shadow: 0 0 8px hsl(var(--accent) / 0.6); }
+  .neon-text-danger { color: hsl(var(--destructive)); text-shadow: 0 0 8px hsl(var(--destructive) / 0.6); }
 
-  .glow-cyan { box-shadow: var(--shadow-glow-cyan); }
-  .glow-orange { box-shadow: var(--shadow-glow-orange); }
+  .glow-teal { box-shadow: var(--shadow-glow-teal); }
+  .glow-amber { box-shadow: var(--shadow-glow-amber); }
+  .glow-danger { box-shadow: var(--shadow-glow-danger); }
 
   .status-dot {
     @apply inline-block w-2 h-2 rounded-full relative;
@@ -154,45 +158,33 @@
     background: inherit;
   }
 
-  .gradient-border {
-    position: relative;
-    background: hsl(var(--card));
-  }
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.6), transparent 50%, hsl(var(--accent) / 0.6));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    pointer-events: none;
-  }
-
   .scanline {
     background-image: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      hsl(var(--primary) / 0.03) 2px,
-      hsl(var(--primary) / 0.03) 4px
+      0deg, transparent, transparent 2px,
+      hsl(var(--primary) / 0.03) 2px, hsl(var(--primary) / 0.03) 4px
     );
   }
 
-  .data-cell {
-    @apply font-mono text-xs tabular-nums;
+  .data-cell { @apply font-mono text-xs tabular-nums; }
+
+  .ocean-bg {
+    background:
+      radial-gradient(ellipse at 30% 20%, hsl(195 60% 18% / 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, hsl(178 70% 15% / 0.4) 0%, transparent 50%),
+      hsl(var(--ocean-deep));
   }
 }
 
 @layer utilities {
   .animate-flow {
     stroke-dasharray: 8 6;
-    animation: flow 2s linear infinite;
+    animation: flow 1.5s linear infinite;
   }
-  @keyframes flow {
-    to { stroke-dashoffset: -28; }
+  @keyframes flow { to { stroke-dashoffset: -28; } }
+
+  .animate-flow-slow {
+    stroke-dasharray: 4 8;
+    animation: flow 4s linear infinite;
   }
 
   .animate-pulse-glow {
@@ -203,6 +195,14 @@
     50% { box-shadow: 0 0 0 10px hsl(var(--primary) / 0); }
   }
 
+  .animate-radar {
+    animation: radar 3s linear infinite;
+  }
+  @keyframes radar {
+    0% { transform: scale(0.6); opacity: 1; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+
   .animate-shimmer {
     background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.15), transparent);
     background-size: 200% 100%;
@@ -211,5 +211,13 @@
   @keyframes shimmer {
     0% { background-position: 200% 0; }
     100% { background-position: -200% 0; }
+  }
+
+  .animate-blink {
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 }

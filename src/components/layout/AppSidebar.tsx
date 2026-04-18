@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import {
-  LayoutDashboard, Network, ClipboardList, GitFork, CalendarRange, LineChart, Settings, Cpu,
+  Globe2, Ship, Container, Boxes, ShieldAlert, Sliders, Lightbulb, Settings, Anchor,
 } from "lucide-react";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
@@ -8,12 +8,13 @@ import {
 } from "@/components/ui/sidebar";
 
 const modules = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard, badge: "live" },
-  { title: "Vue Chaîne", url: "/chaine", icon: Network },
-  { title: "Carnet Commandes", url: "/commandes", icon: ClipboardList, badge: "32" },
-  { title: "BOM Produits", url: "/bom", icon: GitFork },
-  { title: "Planning Gantt", url: "/planning", icon: CalendarRange, badge: "!" },
-  { title: "Stocks", url: "/stocks", icon: LineChart },
+  { title: "Global Network", url: "/", icon: Globe2, badge: "live" },
+  { title: "Fleet & Routes", url: "/fleet", icon: Ship, badge: "20" },
+  { title: "Container Flow", url: "/containers", icon: Container },
+  { title: "Stowage 3D", url: "/stowage", icon: Boxes, badge: "!" },
+  { title: "Risk & Sim", url: "/risk", icon: ShieldAlert, badge: "3" },
+  { title: "Optim Center", url: "/optim", icon: Sliders },
+  { title: "Explainability", url: "/explain", icon: Lightbulb },
 ];
 
 export function AppSidebar() {
@@ -26,12 +27,12 @@ export function AppSidebar() {
       <SidebarHeader className="border-b border-sidebar-border">
         <div className="flex items-center gap-2 px-2 py-3">
           <div className="relative w-8 h-8 rounded-md bg-gradient-to-br from-primary to-info flex items-center justify-center shadow-[0_0_16px_hsl(var(--primary)/0.4)]">
-            <Cpu className="w-4 h-4 text-primary-foreground" />
+            <Anchor className="w-4 h-4 text-primary-foreground" />
           </div>
           {!collapsed && (
             <div className="flex flex-col">
-              <span className="font-mono text-sm font-bold tracking-wider text-foreground">SUPPLY<span className="text-primary">OR</span></span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Operational Research</span>
+              <span className="font-mono text-sm font-bold tracking-wider text-foreground">MARITIME<span className="text-primary">·OR</span></span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Decision Intelligence</span>
             </div>
           )}
         </div>
@@ -93,7 +94,7 @@ export function AppSidebar() {
         </SidebarMenu>
         {!collapsed && (
           <div className="px-2 py-2 text-[10px] font-mono text-muted-foreground/60 border-t border-sidebar-border/50 mt-1">
-            v1.0.0 · OR-Engine ACTIVE
+            v2.0.0 · OR-Engine ACTIVE
           </div>
         )}
       </SidebarFooter>
