@@ -4,12 +4,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppShell } from "./components/layout/AppShell";
-import Dashboard from "./pages/Dashboard";
-import ChainView from "./pages/ChainView";
-import Orders from "./pages/Orders";
-import BOM from "./pages/BOM";
-import Planning from "./pages/Planning";
-import Stocks from "./pages/Stocks";
+import GlobalNetwork from "./pages/GlobalNetwork";
+import FleetRoutes from "./pages/FleetRoutes";
+import ContainerFlow from "./pages/ContainerFlow";
+import Stowage3D from "./pages/Stowage3D";
+import Risk from "./pages/Risk";
+import OptimCenter from "./pages/OptimCenter";
+import Explainability from "./pages/Explainability";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,12 +23,13 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route element={<AppShell />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/chaine" element={<ChainView />} />
-            <Route path="/commandes" element={<Orders />} />
-            <Route path="/bom" element={<BOM />} />
-            <Route path="/planning" element={<Planning />} />
-            <Route path="/stocks" element={<Stocks />} />
+            <Route path="/" element={<GlobalNetwork />} />
+            <Route path="/fleet" element={<FleetRoutes />} />
+            <Route path="/containers" element={<ContainerFlow />} />
+            <Route path="/stowage" element={<Stowage3D />} />
+            <Route path="/risk" element={<Risk />} />
+            <Route path="/optim" element={<OptimCenter />} />
+            <Route path="/explain" element={<Explainability />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
